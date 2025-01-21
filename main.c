@@ -9,28 +9,13 @@
 #include "stdio.h"
 #include "stdbool.h"
 #include "string.h"
+#include "json_validators.h"
 
 // TODO: logger.h
 void print_error(const char *message) {
 	printf("Error >> %s\n", message);
 }
 
-// TODO: Move methods out to json_validators.h
-bool validate_paired_structure(const char *content, char open, char close) {
-	printf("Validating structure for symbols %c %c \n", open, close);
-	long counter = 0; 
-	for (int i = 0; content[i] != '\0'; i++) {
-		if (content[i] == open) {
-			++counter;
-		} else if (content[i] == close) {
-			--counter;
-			if (counter < 0) {
-				return false;
-			}
-		}
-	}
-	return counter == 0;
-}
 
 void print_json_file(const char* content) {
 	for (int i = 0; content[i] != '\0'; i++) {
