@@ -10,6 +10,7 @@
 #include "stdbool.h"
 #include "string.h"
 #include "json_validators.h"
+#include "main.h"
 
 // TODO: logger.h
 void print_error(const char *message) {
@@ -23,30 +24,32 @@ void print_json_file(const char* content) {
 	}
 }
 
-bool validate_json(const char* content) {
-	// Implement validation logic here
-  // Return true if JSON is valid, false otherwise
-	char structure_symbols[2][2] = {
-		{'{', '}'}, // JSON Object data structure
-		{'[', ']'}  // JSON Array data structure
-	};
-	// Calculating count of rows in 2d array
-	int rows = sizeof(structure_symbols) / sizeof(structure_symbols[0]);
-	for (int i = 0; i < rows; ++i) {
-		const char open = structure_symbols[i][0];
-		const char close = structure_symbols[i][1];
-		if (!validate_paired_structure(
-				content, 
-				open, 
-				close
-			)
-		) {
-			printf("Based validation: ❌, %c, %c\n", open, close);
-			return false;
+void serialize(const char* content) {
+	// TODO: try to serialize objects in JSON
+	printf("---------------- Serialize process ----------------\n\n");
+	int counter = 0;
+	for (int i = 0; content[i] != '\0'; i++) {
+		// serialize objects
+		if (content[i] == OBJECT_START) {
+			counter++;
+			printf("%d object found\n", counter);
+			for (int j = i; content[j] != OBJECT_END; ++j) {
+				printf("%c", content[j]);
+			}
+			printf("%c", OBJECT_END);
+			printf("\n");
 		}
 	}
-	printf("Based validation: ✅\n");
-  return true;
+}
+
+bool main_validator(const char* content) {
+	// Basic structure validation
+	if (!validate_json(content)) {
+		return false;
+	}
+	// TODO: validate all data structures in json
+
+	return true;
 }
 
 int main() {
@@ -79,10 +82,12 @@ int main() {
 
 	print_json_file(content);
 
-	if (!validate_json(content)) {
+	if (!main_validator(content)) {
 		print_error("Invalid JSON");
 		return 1;
 	}
+
+	serialize(content);
 
 	return 0;
 };
