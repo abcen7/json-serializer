@@ -6,3 +6,6 @@
 
 ### Emitter
 **Goal:** to bypass the resulting JsonValue* and form a correct JSON string (in compact or "pretty" form).
+
+### Util
+**Goal**: collect common helper-functions used by all modules
