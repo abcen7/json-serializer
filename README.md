@@ -1,14 +1,3 @@
-### Simple json-serializer based on C
+### Tokenizer
+Goal: read the input string and split her for ordered sequence of tokens for comfortable parsing.
 
-Author: K. Sermyagin
-
----
-
-Features:
-[+] Get content of JSON file
-
-TODO:
-- Important: create the preprocessor which will remove all whitespaces tabs and etc. 
-- JSON validation
-- Main feature: parsing the JSON to C structures
-- Dynamic memory allocation for file
