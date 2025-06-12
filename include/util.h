@@ -10,10 +10,11 @@ void buffer_free(char **buffer);
 
 // Safety allocations
 void *xmalloc(size_t size); // Exiting with error if getting NULL
+void *xcalloc(size_t n, size_t size);
 void *xrealloc(void *p, size_t new_size);
 
 // String helpers
-char *strdup_safe(const char *s);
+char *xstrdup(const char *str);
 
 /*
  * Processes:

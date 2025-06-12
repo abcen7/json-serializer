@@ -1,0 +1,61 @@
+{
+  "_obj_empty": {},
+  "_obj_filled": {
+    "simpleKey": "simpleValue",
+    "nestedObj": {
+      "innerKey": "innerValue",
+      "deeplyNested": {
+        "level": 3
+      }
+    },
+    "withEscapes": "Line1\\nLine2\\tTabbed\\\"Quote\\\"\\\\Backslash"
+  },
+  "_list_empty": [],
+  "_list_filled": [
+    0,
+    -42,
+    3.1415,
+    1e+6,
+    2.5e-3,
+    true,
+    false,
+    null,
+    "stringInList",
+    {
+      "mixed": [
+        "a\nb",
+        "\tindent",
+        "\\"
+      ]
+    }
+  ],
+  "_str_plain": "Hello, World!",
+  "_str_with_control": "First Line\nSecond Line\rCarriage Return\tEnd",
+  "_str_quotes": "He said: \"JSON is fun!\"",
+  "_str_backslash": "C:\\\\Program Files\\\\Test",
+  "_str_unicode": "Unicode test: \\u03A9 \\u20AC \\uD83D\\uDE00",
+  "_int_zero": 0,
+  "_int_positive": 123456,
+  "_int_negative": -789,
+  "_float": 0.0001,
+  "_float_exponent_lower": 3.13e-10,
+  "_float_exponent_upper": 6.02E23,
+  "_bool_true": true,
+  "_bool_false": false,
+  "_null": null,
+  "_complex": [
+    {
+      "a": [
+        [],
+        {},
+        [
+          {
+            "x": "\n"
+          }
+        ]
+      ]
+    },
+    [],
+    {}
+  ]
+}
